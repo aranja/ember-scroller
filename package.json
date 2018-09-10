@@ -1,12 +1,12 @@
 {
   "name": "ember-scroller",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.1",
+  "description": "Animated scroll using rAF.",
   "keywords": [
     "ember-addon"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "aranja",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -20,7 +20,7 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
-    "ember-cli-babel": "^6.6.0"
+    "ember-cli-babel": "^6.8.0"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.7.0",
