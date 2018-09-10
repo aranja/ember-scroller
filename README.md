@@ -1,7 +1,7 @@
 ember-scroller
 ==============================================================================
 
-[Short description of the addon.]
+Animate scroll to an element using rAF.
 
 Installation
 ------------------------------------------------------------------------------
@@ -14,7 +14,25 @@ ember install ember-scroller
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+Use the `scroller` service to scroll to an element.
+
+```js
+  scroller: service(),
+
+  actions: {
+    scroll() {
+      const element = document.getElementById('scroll-to');
+      get(this, 'scroller').scrollTo(element);
+    }
+  }
+```
+
+Add elements as offsets (such as a fixed header) and they are taken into account even if they change height on different viewports.
+
+```js
+    const headerElem = document.getElementById('header');
+    scroller.addOffset(headerElem);
+```
 
 
 Contributing
@@ -22,7 +40,7 @@ Contributing
 
 ### Installation
 
-* `git clone <repository-url>`
+* `git clone https://github.com/aranja/ember-scroller.git`
 * `cd ember-scroller`
 * `yarn install`
 
