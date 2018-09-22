@@ -7,8 +7,14 @@ export default Controller.extend({
 
   actions: {
     scroll() {
+      const scroller = get(this, 'scroller');
+      if (!get(scroller, 'hasOffset')) {
+        const headerEl = document.querySelectorAll('header')[0];
+        scroller.addOffset(headerEl);
+      }
+
       const element = document.getElementById('scroll-to');
-      get(this, 'scroller').scrollTo(element);
+      scroller.scrollTo(element);
     }
   }
 });

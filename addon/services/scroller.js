@@ -1,5 +1,7 @@
 import Service from '@ember/service';
 import { get, set } from '@ember/object';
+import { A } from '@ember/array';
+import { notEmpty } from '@ember/object/computed';
 
 const DEFAULT_DURATION = 500;
 const easeInOut = (x) => x < 0.5 ? 2 * x * x : -1 + (4 - 2 * x) * x;
@@ -9,8 +11,10 @@ export default Service.extend({
     this._super(...arguments);
 
     this.onFrame = this.onFrame.bind(this);
-    set(this, 'offsetElements', []);
+    set(this, 'offsetElements', A());
   },
+
+  hasOffset: notEmpty('offsetElements'),
 
   addOffset(element) {
     if (!element) {
@@ -33,7 +37,7 @@ export default Service.extend({
     const offsetTop = box.top + window.pageYOffset;
     
     return offsetElements.reduce((offset, element) => {
-      return offset + element.offsetHeight;
+      return offset - element.offsetHeight;
     }, offsetTop);
   },
 
